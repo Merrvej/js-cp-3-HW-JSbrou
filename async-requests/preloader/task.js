@@ -20,11 +20,11 @@ function displayData(object) {
     for(let key = 0; key < object.length; key++) {
         const codeElement = document.createElement('div');
         codeElement.classList.add('item__code');
-        codeElement.textContent = object.[key].CharCode;
+        codeElement.textContent = object[key].CharCode;
     
         const valueElement = document.createElement('div');
         valueElement.classList.add('item__value');
-        valueElement.textContent = object.[key].Value;
+        valueElement.textContent = object[key].Value;
     
         const currencyElement = document.createElement('div');
         currencyElement.classList.add('item__currency');
