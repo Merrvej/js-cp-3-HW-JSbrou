@@ -23,8 +23,7 @@ function upload(file) {
         alert('Произошла ошибка при отправке данных на сервер')
     }
 
-    const formData = new FormData();
-    formData.append('file', file);
+    const formData = new FormData(uploadForm);
      xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
-     xhr.send(file);
+     xhr.send(formData);
 }
