@@ -3,6 +3,7 @@ xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/poll')
 xhr.send();
 
 xhr.addEventListener('readystatechange', (e) => {
+    e.preventDefault();
     let result = JSON.parse(xhr.responseText);
     
     const titleElement = document.getElementById('poll__title');
