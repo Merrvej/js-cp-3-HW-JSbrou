@@ -11,9 +11,7 @@ xhr.addEventListener('readystatechange', (e) => {
 
     const answersElement = document.getElementById('poll__answers');
 
-    const answersArr = arrayFrom(result.data.answers);
-
-    answersArr.forEach(answer => {
+    result.data.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer;
         button.addEventListener('click', () => {
