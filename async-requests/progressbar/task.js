@@ -12,6 +12,7 @@ uploadForm.onsubmit = function(e) {
 }
 
 function upload(file) {
+    file.preventDefault();
     let xhr = new XMLHttpRequest();    
 
     xhr.upload.onprogress = function(event) {
