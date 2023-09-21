@@ -15,9 +15,11 @@ xhr.onload = function(e) {
 xhr.send();
 
 function displayData(object) {
-    const itemsContainer = document.getElementById('item');
+    const itemsContainer = document.querySelector('.item');
+    // const iterableObject = Array.from(object);
 
-    for(let key = 0; key < object.length; key++) {
+    for(var key in object) {
+
         const codeElement = document.createElement('div');
         codeElement.classList.add('item__code');
         codeElement.textContent = object[key].CharCode;
