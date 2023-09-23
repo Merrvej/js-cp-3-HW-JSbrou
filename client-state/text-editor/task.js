@@ -5,6 +5,5 @@ textArea.addEventListener('input', function() {
 })
 
 window.onload = function() {
-    const savedText = localStorage.getItem('text');
-    textArea.value = savedText;
+    textArea.value = localStorage.getItem('text');
 }
