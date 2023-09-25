@@ -19,14 +19,8 @@ function submitForm(event) {
         localStorage.setItem('user_id', userId);
         localStorage.setItem('loggedIn', 'true');
 
-        signinForm.classList.remove('signin_active');
-
-        xhr.onerror = function() {
-            welcomeBlock.classList.add('welcome_active');
-            welcomeBlock.textContent = 'Произошла ошибка при отправке формы';
-        }
-
-        if (localStorage.getItem('loggedIn') === 'true') {
+        if (userId) {
+            signinForm.classList.remove('signin_active');
             welcomeBlock.classList.add('welcome_active');
             userIdSpan.textContent = userId;
         } else {
@@ -37,12 +31,24 @@ function submitForm(event) {
         xhr.send(formData);
 
     })
+
+    xhr.onerror = function() {
+        welcomeBlock.classList.add('welcome_active');
+        welcomeBlock.textContent = 'Произошла ошибка при отправке формы';
+    }
 }
+
+window.addEventListener('load', function() {
+    if (localStorage.getItem('loggedIn') === 'true') {
+        signinForm.classList.remove('signin_active');
+        welcomeBlock.classList.add('welcome_active');
+        userIdSpan.textContent = userId;
+    }  
+})
 
 signinForm.addEventListener('submit', function(event) {
     event.preventDefault();
     signinForm.reset();
+    submitForm();
   });
-
-signinButton.addEventListener('click', submitForm);
 
